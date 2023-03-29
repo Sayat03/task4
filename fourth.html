@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title></title>
+        <style>
+            header{
+    background-color: #399999;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 25% 40% 30%;
+    justify-items: center;
+}
+
+.left{
+    color: white;   
+}
+
+
+
+#form2{
+    width: 550px;
+    display: grid;
+    margin: 100px auto;
+    box-shadow: 0px 0px 5px gray;
+    padding: 20px;
+}
+#form2 input{
+    margin-bottom: 20px;
+    padding: 7px;
+    margin-top: 5px;
+}
+#form2 select{
+    margin-bottom: 20px;
+    padding: 7px;
+    margin-top: 5px;
+}
+#btn-reg{
+    width: 100px;
+    margin: auto;
+    padding: 10px;
+}
+#btn-reg:hover{
+    background-color: seagreen;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+button{
+    padding: 5px 10px;
+    border-radius: 50px;
+    border: 0px solid ;
+    color: white;
+    background-color: #399999;
+    font-weight: bold;
+}
+#form3 input{
+    margin-bottom: 20px;
+    padding: 7px;
+    margin-top: 5px;
+}
+#form3{
+    width: 550px;
+    display: grid;
+    margin: 100px auto;
+    box-shadow: 0px 0px 5px gray;
+    padding: 20px;
+}
+#btn-login{
+    width: 100px;
+    margin: auto;
+    padding: 10px;
+}   
+#btn-login:hover{
+    background-color: seagreen;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#right2{
+    display: none;
+}
+#form{
+    width: 550px;
+    display: grid;
+    margin: 100px auto;
+    box-shadow: 0px 0px 5px gray;
+    padding: 20px;
+}
+#form input{
+    margin-bottom: 20px;
+    padding: 7px;
+    margin-top: 5px;
+}
+
+#btnreg,
+#lbtn{
+    width: 100px;
+    margin: auto;
+    padding: 10px;
+}
+#btnreg:hover{
+    background-color: seagreen;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#lbtn:hover{
+    background-color: seagreen;
+    transition: 0.5s;
+    cursor: pointer;
+}
+button{
+    padding: 5px 10px;
+    border-radius: 50px;
+    border: 0px solid ;
+    color: white;
+    background-color: #399999;
+    font-weight: bold;
+}
+#tname,
+#temail,
+#tpass,
+#tcountry,
+#tdate{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-bottom: 20px;
+    width: 60%;
+    margin: auto;
+}
+#right{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1em;
+}
+
+#form,
+#form2{
+    display: none;
+}
+        </style>
+        
+    </head>
+    <body>
+        <header>
+    <div class="left">
+       <h3>TWITTER</h3> 
+    </div>
+    <div></div>
+    <div id="right">
+        <button id="tweets"><h4>Tweets</h4></button>
+        <button id="login"><h4 id="loginText">Login</h4></button>
+        <button id="reg"><h4 id="registerText">Register</h4></button>
+    </div>
+    
+    
+</header>
+<main>
+    <div id="main">
+        <div id="form">
+            <h1 id="helloText"></h1>
+            <div id="temail">
+                <h3>EMAIL:</h3>
+                <h3 id="te"></h3>
+            </div>
+            <div id="tpass">
+                <h3>PASSWORD:</h3>
+                <h3 id="tp"></h3>
+            </div>
+            <div id="tname">
+                <h3>FULL NAME:</h3>
+                <h3 id="tn"></h3>
+            </div>
+            <div id="tcountry">
+                <h3>COUNTRY:</h3>
+                <h3 id="tc"></h3>
+            </div>
+            <div id="tdate">
+                <h3>DATE:</h3>
+                <h3 id="td"></h3>
+            </div>
+        </div>
+
+
+        <form>
+        <div id="form2">
+                <label>EMAIL:</label>
+            <input id="remail">
+            <label >PASSWORD:</label>
+            <input type="password" id="rpass">
+            <label>FULL NAME:</label>
+            <input id="rname">
+            <label>COUNTRY:</label>
+            <select id="rcountry">
+                <option>Kazakhstan</option>
+                <option>France</option>
+                <option>USA</option>
+                <option>Canada</option>
+                <option>Turkey</option>
+            </select>
+            <label >BIRTH DATE:</label>
+            <input type="date" id="rdate">
+            <button id="btnreg" type="button">REGISTER</button>
+        </div>
+        </form>
+
+
+
+        <div id="form3">
+            <label>EMAIL:</label>
+            <input id="lemail">
+            <label>PASSWORD:</label>
+            <input id="lpass" type="password"   >
+            <button id="lbtn">SIGN IN</button>
+        </div>
+    </div>
+</main>
+
+    </body>
+    <script>
+        let index = 0;
+        let users = [];
+
+
+        function reqister(event){
+            let newUser = {};
+            newUser.email = remail.value;
+            newUser.pass = rpass.value;
+            newUser.name = rname.value;
+            newUser.country = rcountry.value;
+            newUser.date = rdate.value;
+
+            if(remail.value=="" || rpass.value=="" || rname.value=="" || rcountry.value=="" || rdate.value==""){
+                remail.style.border = "1px solid red";
+                rname.style.border = "1px solid red";
+                rpass.style.border = "1px solid red";
+                rcountry.style.border = "1px solid red";
+                rdate.style.border = "1px solid red";
+            } else if(remail.value!="" && rpass.value!="" && rname.value!="" && rcountry.value!="" && rdate.value!=""){
+                let newUser = {};
+                newUser.email = remail.value;
+                newUser.pass = rpass.value;
+                newUser.name = rname.value;
+                newUser.country = rcountry.value;
+                newUser.date = rdate.value;
+
+                remail.style.border = "1px solid green";
+                rname.style.border = "1px solid green";
+                rpass.style.border = "1px solid green";
+                rcountry.style.border = "1px solid green";
+                rdate.style.border = "1px solid green";
+
+                btnreg.setAttribute('type', 'submit')
+
+                users.push(newUser);
+                index = index+1;
+                localStorage.user = JSON.stringify(users);
+            }
+        }
+
+        function signin(event){
+            for(let u of userJs){
+                if(lemail.value==u.email && lpass.value==u.pass){
+                    
+                    helloText.innerHTML = "Welcome " + u.name;
+                    helloText.style.textAlign = "center";
+                    helloText.style.color = "green";
+                    form.style.display = "grid";
+                    form3.style.display = "none";
+                    
+                    
+                    te.innerHTML = u.email;
+                    te.style.color = "gray";
+
+                    
+                    tp.innerHTML = u.pass;
+                    tp.style.color = "gray";
+                    
+
+                    
+                    tn.innerHTML = u.name;
+                    tn.style.color = "gray";
+                    
+
+                    
+                    tc.innerHTML = u.country;
+                    tc.style.color = "gray";
+                    
+
+                    
+                    td.innerHTML = u.date;
+                    td.style.color = "gray";
+                    
+    
+                    
+                    
+                        loginText.innerHTML = u.name;
+                        registerText.innerHTML = "Logout";
+                    
+                    function close(event){
+                        loginText.innerHTML = "Login";
+                        registerText.innerHTML = "Register";
+                        login.addEventListener('click', open);
+                        reg.addEventListener('click', open2);
+                    }
+
+        
+                    form.prepend(helloText);
+                    login.addEventListener('click', open);
+                    reg.addEventListener('click', close);
+                } else {
+                    lemail.style.border = "1px solid red";
+                    lpass.style.border = "1px solid red";
+                }
+            }
+        }
+        
+        function updateStorage(){
+            localStorage.user = JSON.stringify(users);
+        }
+        
+        
+            
+        
+        let usersList = localStorage.getItem('user');
+        let userJs = JSON.parse(usersList);
+        console.log(userJs)
+        
+            
+    
+    btnreg.addEventListener('click', reqister);
+    lbtn.addEventListener('click', signin);
+
+    function open(event){
+            form.style.display = "none";
+            form2.style.display = "none";
+            form3.style.display = "grid";
+    }
+    function open2(event){
+            form.style.display = "none";
+            form2.style.display = "grid";
+            form3.style.display = "none";
+    }
+    function open3(event){
+            form.style.display = "grid";
+            form2.style.display = "none";
+            form3.style.display = "none";
+    }
+    login.addEventListener('click', open);
+    reg.addEventListener('click', open2);
+    
+    </script>
+</html>
+</body>
+</html>
